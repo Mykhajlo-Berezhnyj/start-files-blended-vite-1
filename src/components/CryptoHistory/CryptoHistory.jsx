@@ -1,4 +1,5 @@
-import style from './CryptoHistory.module.css'
+import style from './CryptoHistory.module.css';
+import { format } from 'date-fns';
 
 const CryptoHistory = ({items}) => {
   return (
@@ -21,14 +22,7 @@ const CryptoHistory = ({items}) => {
       <td className={style.td}>{index+1}</td>
       <td className={style.td}>{price}</td>
       <td className={style.td}>{amount}</td>
-      <td className={style.td}>{new Date(date).toLocaleString('en-US', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: true
-  })}</td>
+      <td className={style.td}>{format(new Date(date), 'MM/dd/yyyy, h:mm a')}</td>
     </tr>
     ))}
       {/* <td className={style.td}>1</td>
